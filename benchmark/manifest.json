@@ -1,0 +1,17 @@
+{
+  "suites": [
+    {"name": "order", "path": "suites/order",
+     "expect": {"nodeids": ["test_a_victim.py::test_victim_needs_clean_state"],
+                "kinds": ["ORDER-DEPENDENT"], "profiles": ["order", "combined"]}},
+    {"name": "seed", "path": "suites/seed",
+     "expect": {"nodeids": ["test_hash.py::test_first_item_is_not_alpha", "test_roll.py::test_roll_is_lucky"],
+                "kinds": ["SEED-DEPENDENT", "INTERMITTENT"], "profiles": ["seed", "combined"]}},
+    {"name": "timing", "path": "suites/timing",
+     "expect": {"nodeids": ["test_timing.py::test_latency_budget"],
+                "kinds": ["TIMING-DEPENDENT", "INTERMITTENT", "SEED+TIMING-DEPENDENT"], "profiles": ["timing", "combined"]}},
+    {"name": "stable", "path": "suites/stable", "expect": null},
+    {"name": "broken", "path": "suites/broken",
+     "expect": {"nodeids": ["test_broken.py::test_always_fails"], "kinds": ["BROKEN"],
+                "profiles": ["order", "seed", "timing", "combined"]}}
+  ]
+}

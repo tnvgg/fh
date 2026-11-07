@@ -1,0 +1,7 @@
+Project: FlakeHunt
+Category: Coding & developer tools
+Summary: Finds flaky pytest tests by re-running the suite under shuffled order, seeds and timing jitter, classifies each failure (order / seed / timing / intermittent / broken), shrinks it to a minimal reproducer with delta debugging, and uses the BharatCode model API to explain the cause and propose a patch that is verified by re-running the tests on a copy of your project.
+BharatCode model API: qwen-3.8-27b via https://bharatcode.ai/api/model/v1 (BHARATCODE_API_KEY, optional FLAKEHUNT_MODEL)
+Where the model is used: flakehunt/ai.py (client), flakehunt/fixer.py (patch proposal + verification loop)
+Try it: pip install -e . && flakehunt demo && flakehunt scan demo_big --runs 12 --profile combined --fix
+Source: this repository (MIT)
